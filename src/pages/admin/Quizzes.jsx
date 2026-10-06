@@ -1,0 +1,3 @@
+import { ClipboardList } from "lucide-react";
+import { ResourcePage } from "./_ui";
+export default function Quizzes(){return <ResourcePage config={{title:"Quizzes",description:"Quiz publishing and attempts.",icon:ClipboardList,table:"quizzes",searchKeys:["title","description","status"],columns:[{key:"title",label:"Quiz"},{key:"course_id",label:"Course"},{key:"status",label:"Status"},{key:"duration_minutes",label:"Minutes"}],formFields:[{name:"course_id",label:"Course ID",required:true},{name:"title",label:"Title",required:true},{name:"description",label:"Description",type:"textarea",full:true},{name:"duration_minutes",label:"Duration (minutes)",type:"number"},{name:"passing_score",label:"Passing score",type:"number"},{name:"status",label:"Status"}],canDelete:true}}/>}

@@ -1,0 +1,11 @@
+import { Search, ShoppingBag } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { getMarketplaceProducts } from "../../services/studentService";
+import { EmptyState, PageHeader, FilterBar, ConnectedNotice } from "../../components/student/StudentFeatureShell";
+
+export default function Marketplace(){
+ const [search,setSearch]=useState(""),[products,setProducts]=useState([]),[loading,setLoading]=useState(true),[error,setError]=useState("");
+ useEffect(()=>{getMarketplaceProducts().then(setProducts).catch(e=>{console.error(e);setError("Marketplace could not be loaded.")}).finally(()=>setLoading(false))},[]);
+ const visible=useMemo(()=>products.filter(p=>`${p.name} ${p.description||""}`.toLowerCase().includes(search.toLowerCase())),[products,search]);
+ return <div className="space-y-6"><PageHeader eyebrow="Marketplace" title="Marketplace" description="Explore educational products and resources available through the platform."/><FilterBar onSearch={setSearch} search={search} placeholder="Search marketplace..."/>{error&&<ConnectedNotice>{error}</ConnectedNotice>}{loading?<div className="py-12 text-center text-sm text-slate-500">Loading products…</div>:visible.length?<div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{visible.map(p=><article key={p.id} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">{p.image_url?<img src={p.image_url} alt={p.name} className="h-48 w-full object-cover"/>:<div className="flex h-48 items-center justify-center bg-slate-100 text-slate-400"><ShoppingBag size={35}/></div>}<div className="p-5"><h2 className="font-bold text-slate-950">{p.name}</h2><p className="mt-2 line-clamp-3 text-sm text-slate-500">{p.description||"No description provided."}</p><div className="mt-5 flex items-center justify-between"><span className="text-lg font-bold text-blue-700">PKR {Number(p.price||0).toLocaleString()}</span><span className="text-xs text-slate-400">{p.stock} in stock</span></div></div></article>)}</div>:<EmptyState icon={ShoppingBag} title="No products available" description={search?"No products match your search.":"Products will appear here when the Manager publishes them."}/>}</div>;
+}

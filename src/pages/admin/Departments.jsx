@@ -1,0 +1,3 @@
+import { Building2 } from "lucide-react";
+import { ResourcePage } from "./_ui";
+export default function Departments(){return <ResourcePage config={{title:"Departments",description:"Academic department management.",icon:Building2,table:"departments",searchKeys:["name","code","description"],columns:[{key:"name",label:"Name"},{key:"code",label:"Code"},{key:"is_active",label:"Status",render:r=>r.is_active?"Active":"Inactive"}],formFields:[{name:"name",label:"Name",required:true},{name:"code",label:"Code"},{name:"description",label:"Description",type:"textarea",full:true},{name:"is_active",label:"Active",type:"checkbox"}],canDelete:true}}/>}

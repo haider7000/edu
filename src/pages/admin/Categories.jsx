@@ -1,0 +1,3 @@
+import { FolderTree } from "lucide-react";
+import { ResourcePage } from "./_ui";
+export default function Categories(){return <ResourcePage config={{title:"Categories",description:"Course categorization management.",icon:FolderTree,table:"categories",searchKeys:["name","slug","description"],columns:[{key:"name",label:"Name"},{key:"slug",label:"Slug"},{key:"is_active",label:"Status",render:r=>r.is_active?"Active":"Inactive"}],formFields:[{name:"name",label:"Name",required:true},{name:"slug",label:"Slug"},{name:"description",label:"Description",type:"textarea",full:true},{name:"is_active",label:"Active",type:"checkbox"}],canDelete:true}}/>}

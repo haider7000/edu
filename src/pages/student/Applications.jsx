@@ -1,0 +1,4 @@
+import { ClipboardList, Search } from "lucide-react";
+import { useState } from "react";
+import { EmptyState, PageHeader, FilterBar, ConnectedNotice } from "../../components/student/StudentFeatureShell";
+export default function Applications(){const [search,setSearch]=useState("");return <div className="space-y-6"><PageHeader eyebrow="Career" title="Applications" description="Track internship and job applications from one place."/><ConnectedNotice>Application tracking will become live when career listings and application storage are connected.</ConnectedNotice><FilterBar filters={["All","Pending","Reviewed","Accepted","Rejected"]} active="All" onSearch={setSearch} search={search} placeholder="Search applications..."/><EmptyState icon={ClipboardList} title="No applications yet" description={search?"No applications match your search.":"Applications you submit through the career system will appear here."}/></div>}

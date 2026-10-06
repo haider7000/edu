@@ -1,0 +1,3 @@
+import { Settings } from "lucide-react";
+import { ResourcePage } from "./_ui";
+export default function SystemSettings(){return <ResourcePage config={{title:"System Settings",description:"Platform-wide configuration.",icon:Settings,table:"system_settings",order:"updated_at",searchKeys:["key","description"],columns:[{key:"key",label:"Setting"},{key:"value",label:"Value",render:r=>JSON.stringify(r.value)},{key:"description",label:"Description"}],formFields:[{name:"key",label:"Key",required:true},{name:"value",label:"JSON value",required:true},{name:"description",label:"Description",type:"textarea",full:true}],canDelete:true}}/>}

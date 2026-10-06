@@ -1,0 +1,3 @@
+import { ScrollText } from "lucide-react";
+import { ResourcePage } from "./_ui";
+export default function AuditLogs(){return <ResourcePage config={{title:"Audit Logs",description:"Immutable administrative activity history.",icon:ScrollText,table:"audit_logs",searchKeys:["action","module","target_type","target_id"],order:"created_at",columns:[{key:"created_at",label:"Time",render:r=>new Date(r.created_at).toLocaleString()},{key:"action",label:"Action"},{key:"module",label:"Module"},{key:"target_type",label:"Target"},{key:"target_id",label:"Target ID"}],formFields:[],canCreate:false,canEdit:false,canDelete:false}}/>}

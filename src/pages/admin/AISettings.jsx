@@ -1,0 +1,3 @@
+import { Bot } from "lucide-react";
+import { ResourcePage } from "./_ui";
+export default function AISettings(){return <ResourcePage config={{title:"AI Settings",description:"AI feature configuration without exposing provider secrets.",icon:Bot,table:"ai_settings",order:"updated_at",searchKeys:["feature","model"],columns:[{key:"feature",label:"Feature"},{key:"enabled",label:"Enabled",render:r=>r.enabled?"Yes":"No"},{key:"model",label:"Model"},{key:"daily_limit",label:"Daily limit"}],formFields:[{name:"feature",label:"Feature",required:true},{name:"enabled",label:"Enabled",type:"checkbox"},{name:"model",label:"Model"},{name:"daily_limit",label:"Daily limit",type:"number"}],canDelete:true}}/>}

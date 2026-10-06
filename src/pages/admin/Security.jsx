@@ -1,0 +1,3 @@
+import { LockKeyhole } from "lucide-react";
+import { ResourcePage } from "./_ui";
+export default function Security(){return <ResourcePage config={{title:"Security",description:"Application-level security controls. Supabase Auth policies remain managed by Supabase.",icon:LockKeyhole,table:"security_settings",order:"updated_at",searchKeys:["key","description"],columns:[{key:"key",label:"Control"},{key:"value",label:"Value",render:r=>JSON.stringify(r.value)},{key:"description",label:"Description"}],formFields:[{name:"key",label:"Key",required:true},{name:"value",label:"JSON value",required:true},{name:"description",label:"Description",type:"textarea",full:true}],canDelete:true}}/>}

@@ -1,0 +1,3 @@
+import { Store } from "lucide-react";
+import { ResourcePage } from "./_ui";
+export default function Marketplace(){return <ResourcePage config={{title:"Marketplace",description:"Marketplace order management.",icon:Store,table:"product_orders",searchKeys:["status","currency"],columns:[{key:"id",label:"Order"},{key:"student_id",label:"Student"},{key:"total",label:"Total"},{key:"status",label:"Status"},{key:"created_at",label:"Created",render:r=>new Date(r.created_at).toLocaleDateString()}],formFields:[{name:"student_id",label:"Student ID"},{name:"total",label:"Total",type:"number"},{name:"currency",label:"Currency"},{name:"status",label:"Status"}],canCreate:false,canEdit:true,canDelete:true}}/>}
